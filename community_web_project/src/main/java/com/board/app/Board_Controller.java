@@ -160,6 +160,13 @@ public class Board_Controller {
 	
 	@RequestMapping("/main/reply/edit/do")
 	public String reply_edit_do(HttpServletRequest request) {
+		try {
+			request.setCharacterEncoding("utf-8");
+		} catch (UnsupportedEncodingException e) {
+			// TODO Auto-generated catch block
+			System.out.println("에러: " + e.getMessage());
+		}
+		
 		String post_id = request.getSession().getAttribute("prev_post").toString();
 		String reply_id = request.getParameter("reply_id");
 		String text = request.getParameter("text");
